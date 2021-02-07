@@ -1,5 +1,8 @@
 """
 Class and utilities for running the game
+Right now, game runner continues for one shooter
+after a shooter is done,
+active is set to False
 """
 import random
 
@@ -26,11 +29,14 @@ class GameRunner:
                 return
             else:
                 self.come_out = False
-                self.point == self.last_roll
+                self.point = self.last_roll
         else:
             if self.last_roll == 7:
                 self.come_out = True
                 self.end()
+            if self.last_roll == self.point:
+                self.point = None
+                self.come_out = True
 
     def end(self):
         self.active = False

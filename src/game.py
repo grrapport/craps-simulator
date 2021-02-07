@@ -1,7 +1,8 @@
 from game_runner import GameRunner
 
 runner = GameRunner()
-for i in range(0, 100):
+# Run through one sequence (shooter)
+while runner.active:
     runner.roll()
     print(str(runner.last_roll))
 
