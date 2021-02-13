@@ -39,12 +39,18 @@ def simulate_shooter():
 
 def simulate_many_shooters(queue):
     results = []
-    for _ in range(1, 50000):
+    for _ in range(1, 5000):
         results.append(simulate_shooter())
     queue.put(results)
 
 
 def flatten_list_of_lists(broken):
+    """
+    The queue gets a response from each thread in the form of a list
+    This flattens all those lists into one list for analysis
+    :param broken: list of lists
+    :return: list
+    """
     new_list = []
     for li in broken:
         for elem in li:

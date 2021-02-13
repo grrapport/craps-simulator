@@ -2,6 +2,7 @@
 Bet class for pass line bets
 """
 from .bet import Bet
+from .take_odds import TakeOdds
 
 
 class PassLine(Bet):
