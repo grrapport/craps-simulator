@@ -40,9 +40,9 @@ class TakeOdds(Bet):
     @staticmethod
     def get_payoff(point):
         if point in [6, 8]:
-            return 6/5
+            return 6.0/5.0
         if point in [5, 9]:
-            return 3/2
+            return 3.0/2.0
         if point in [4, 10]:
-            return 2
+            return 2.0
 
