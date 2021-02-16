@@ -16,4 +16,8 @@ def test_take_odds():
     assert odds.amount == 100
     assert odds.payoff == 150
     assert odds.evaluate(3, 2, 5) == 150
+    odds = TakeOdds(10, None, 8)
+    assert odds.amount == 0
+    assert odds.payoff == 0
+    assert odds.evaluate(4, 4, 8) == 0
 

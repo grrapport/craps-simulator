@@ -5,7 +5,7 @@ class TakeOdds(Bet):
     def __init__(self, base_amount, multiplier, point):
         self.multiplier = multiplier
         self.point = point
-        self.amount = self.evaluate_multiplier() * base_amount
+        self.amount = self.get_multiplier() * base_amount
         self.payoff = self.get_payoff(self.point) * self.amount
         super().__init__(self.amount)
 
@@ -18,7 +18,9 @@ class TakeOdds(Bet):
             return -self.amount
         return 0
 
-    def evaluate_multiplier(self):
+    def get_multiplier(self):
+        if self.multiplier is None or self.multiplier == "":
+            return 0
         if self.multiplier == "single":
             return 1
         if self.multiplier == "double":

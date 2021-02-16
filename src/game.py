@@ -27,7 +27,7 @@ def remove_inactive_bets(bet_list):
 def simulate_shooter():
     runner = GameRunner()
     shooter_result = 0
-    bets = [PassLine(1, runner.come_out, )]
+    bets = [PassLine(10.0, runner.come_out, odds="double")]
     while runner.active:
         if runner.come_out and runner.last_roll in [2, 3, 12]:
             bets.append(PassLine(1, runner.come_out, ))
