@@ -1,19 +1,17 @@
 """
-Bet class for pass line bets
+Bet class for come bets
 """
 from .bet import Bet
 from .take_odds import TakeOdds
 
 
-class PassLine(Bet):
-    def __init__(self, amount, come_out, point=None, odds=None):
+class Come(Bet):
+    def __init__(self, amount, odds=None):
         super().__init__(amount)
-        self.come_out = come_out
-        self.point = point
+        self.point = None
+        self.come_out = True
         self.odds_strategy = odds
         self.odds = None
-        if self.come_out is False and self.point is None:
-            raise Exception("Not come out roll, but no point defined")
 
     def evaluate(self, dice_1, dice_2, roll_total):
         if self.come_out:
@@ -38,5 +36,4 @@ class PassLine(Bet):
                 self.odds = None
                 return result
         return 0
-
 
